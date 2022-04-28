@@ -20,18 +20,18 @@ from skimage.util import montage
 from matplotlib.image import BboxImage
 import numpy as np
 
-lungsPath = '../Lungs_detection/Datasets/roi_detection_subset/train_val/'
+path = '../Lungs_detection/Datasets/roi_detection_subset/train_val/'
 
 # Get the annotations associated to an image 
 def img2txt_name(f):
-    f = os.lungsPath.basename(f)
-    return lungsPath + f'{str(f)[:-4]}.txt'
+    f = os.path.basename(f)
+    return path + f'{str(f)[:-4]}.txt'
 
 def get_bboxes(f):
     
-    img = PILImage.create(lungsPath+f.name)
+    img = PILImage.create(path+f.name)
 
-    # Get the annotations of the bounding boxes of the lungs of the rx image with lungsPath "f"
+    # Get the annotations of the bounding boxes of the lungs of the rx image with path "f"
     fullAnnot = np.genfromtxt(img2txt_name(f))
 
     bboxes = np.zeros((2,4))
@@ -100,11 +100,11 @@ data = DataBlock(
     batch_tfms= [*aug_transforms(do_flip=False, size=(120,160)), Normalize.from_stats(*imagenet_stats), BBoxReshape] 
 )
 
-lungsPath_dl = lungsPath(lungsPath)
-lungsPath.BASE_lungsPath = lungsPath_dl
-lungsPath_dl.ls().sorted()
+path_dl = Path(path)
+Path.BASE_PATH = path_dl
+path_dl.ls().sorted()
 
-dls = data.dataloaders(lungsPath_dl, lungsPath=lungsPath_dl, bs = 64) # bs: how many samples per batch to load 
+dls = data.dataloaders(path_dl, path=path_dl, bs = 64) # bs: how many samples per batch to load 
 
 class LungDetector(nn.Module):
     def __init__(self, arch=models.resnet18): # resnet18 has 18 lineal layers and it's the default arch if none arch is set as parameter
