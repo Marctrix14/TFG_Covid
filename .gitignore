@@ -1,0 +1,14 @@
+# This file contains the patterns that match with the files or folders of this repository
+# that will be ignored by Git
+
+# For example,it contains "*.pkl" and ".*.pth" which are files produced at the end of the training of a CNN model. 
+# These files are too large to push on Github if you aren't using Git LFS (Large File Storage) which is 
+# an open source Git extension that replaces large files such as audio samples, videos, datasets, and graphics 
+# with text pointers inside Git, while storing the file contents on a remote server like GitHub.com 
+
+*.pyc
+__pycache__/
+
+*.pkl
+
+*.pth
