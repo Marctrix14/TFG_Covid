@@ -41,7 +41,7 @@ generar quadrícules.
 <br/>
 
 * Classificador 2: dataset d'entrada conté imatges de pulmons 
-    - [VERSIÓ VIGENT](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_troballes/Troballes_principals/Pleural_Effusion/Models_classificacio_effusion/Dataset_entrada_ROIS_pulmons/Classificador/v3/Model_a_entrenar/effusion_classification_ROIS_lungs_v3.ipynb) 
+    - [VERSIÓ VIGENT](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_troballes/Troballes_principals/Pleural_Effusion/Models_classificacio_effusion/Dataset_entrada_ROIs_pulmons/Classificador/v3/Model_a_entrenar/effusion_classification_ROIS_lungs_v3.ipynb) 
         - RESULTATS MODEL ENTRENAT:
             - 2 entrenaments (1r 100 epochs, 2n 200)
             - Accuracy darrer epoch 2n entrenament: 0.75
