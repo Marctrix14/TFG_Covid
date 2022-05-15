@@ -1,0 +1,12 @@
+10/5/22
+
+The dataset is splitted as:
+train -> 992 cases* (446 normal, 446 effusion)
+valid -> 100 cases (50 normal, 50 effusion)
+test -> 18 cases(9 normal, 9 effusion)
+
+* each case is a folder that contains two images, one of the grid for the left lung (E3_flipped.png) and another of the grid for the right lung (D3.png)
+
+The grid for the left lung is flipped so that all grids are oriented the same way and the classification of "effusion" becomes more reliable
+
+Total ims: 1100 ims

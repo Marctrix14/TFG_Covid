@@ -1,0 +1,39 @@
+v3 classificador dataset imatges senceres RESNET50 
+
+	
+ENTRENAMENTS 
+
+	1R ENTRENAMENT
+	
+	# epochs: 50
+	learning rate max fit_one_cycle: lr_valley 
+	
+	accuracy últim epoch (#49):  0.74
+	train_loss últim epoch: 0.05
+	valid_loss últim epoch: 0.77
+	
+	2N ENTRENAMENT
+	
+	# epochs: 100
+	learning rate max fit_one_cycle: slice(1e-6, 1e-4)
+	
+	accuracy últim epoch (#99): 0.78
+	train_loss últim epoch: 0.008
+	valid_loss últim epoch: 0.85
+	
+	
+	
+INFERENCE (PREDICCIONS TEST SET)
+
+Pel que fa a les prediccions del test set (Secció Inference), no funciona, perquè no es pot arribar a les imatges, les rutes de les imatges són massa llargues. 
+PENDENT SOLUCIONAR. 
+
+INTERPRETATION 
+	
+	RESULTATS MATRIU DE CONFUSIÓ:
+
+		Nombre d’imatges de validació total: 100
+		Total d’imatges effusion: 50
+		Total d’imatges normal: 50
+		Total prediccions effusion correctes:  (42/50 = 0.84 accuracy effusion)
+		Total prediccions normal correctes:  (36/50 = 0.72 accuracy normal)
