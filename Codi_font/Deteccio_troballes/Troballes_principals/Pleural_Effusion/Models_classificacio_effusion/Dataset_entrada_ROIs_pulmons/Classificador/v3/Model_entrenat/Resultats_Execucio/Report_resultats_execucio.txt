@@ -1,26 +1,21 @@
-v3 classificador dataset imatges senceres RESNET50 
+v3 classificador dataset ROIS pulmons (aquesta versió es caracteritza per tenir com a learning rate màxim 2n entrenament: lr_valley
 
 	
 ENTRENAMENTS 
 
 	1R ENTRENAMENT
 	
-	# epochs: 50
+	# epochs: 100
 	learning rate max fit_one_cycle: lr_valley 
 	
-	accuracy últim epoch (#49):  0.74
-	train_loss últim epoch: 0.05
-	valid_loss últim epoch: 0.77
+	accuracy últim epoch (#99):  0.76
 	
 	2N ENTRENAMENT
 	
-	# epochs: 100
-	learning rate max fit_one_cycle: slice(1e-6, 1e-4)
+	# epochs: 200
+	learning rate max fit_one_cycle: lr_valley
 	
-	accuracy últim epoch (#99): 0.78
-	train_loss últim epoch: 0.008
-	valid_loss últim epoch: 0.85
-	
+	accuracy últim epoch (#199): 0.75
 	
 	
 INFERENCE (PREDICCIONS TEST SET)
@@ -35,5 +30,5 @@ INTERPRETATION
 		Nombre d’imatges de validació total: 100
 		Total d’imatges effusion: 50
 		Total d’imatges normal: 50
-		Total prediccions effusion correctes:  (42/50 = 0.84 accuracy effusion)
+		Total prediccions effusion correctes:  (39/50 = 0.78 accuracy effusion)
 		Total prediccions normal correctes:  (36/50 = 0.72 accuracy normal)
