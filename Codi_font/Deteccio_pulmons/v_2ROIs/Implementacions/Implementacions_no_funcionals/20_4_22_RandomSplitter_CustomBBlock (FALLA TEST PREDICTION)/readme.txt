@@ -1,1 +1,0 @@
-En aquest notebook el que no funciona és la predicció del test set
