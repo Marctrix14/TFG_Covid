@@ -4,10 +4,12 @@
 ## DESCRIPCIÓ
 
 <p> Anàlisi i processament d'imatges de radiografia de tòrax per ajudar en la detecció del COVID-19 i de malaties pulmonars.</p>
-<p> S'han realitzat algorismes d'intel·ligència artificial basats en xarxes neuronals convolucionals, anomenades en anglès Convolutional Neural Networks o CNNs. </p>
 
 
 ![Imatge del projecte](/Imatges/imatgeProjecte.jpeg "Imatge del projecte")
+
+<p> S'han realitzat algorismes d'intel·ligència artificial basats en xarxes neuronals convolucionals, anomenades en anglès Convolutional Neural Networks o CNNs. </p>
+
 
 <br/>
 
@@ -37,7 +39,11 @@
 
 ## IMPLEMENTACIONS 
 
-### DETECCIÓ DE PULMONS
+<br/>
+
+### 1. DETECCIÓ DE PULMONS
+
+<br/>
 
 ![Detecció embassament pleural radiografia de tòrax](/Imatges/Implementacions/DeteccioPulmons/versionsROIs.JPG "Detecció embassament pleural radiografia de tòrax")
 
@@ -55,7 +61,9 @@
 
 <br/>
 
-### DIVISIÓ DELS PULMONS
+### 2. DIVISIÓ DELS PULMONS
+
+<br/>
 
 ![Proves de divisó dels pulmons](/Imatges/Implementacions/DivisioPulmons/resultatsDivisio.png "Proves de divisió dels pulmons")
 
@@ -64,7 +72,9 @@
 <br/><br/>
 
 
-### CLASSIFICACIÓ D'IMATGES DE RADIOGRAFIA PER EMBASSAMENT PLEURAL
+### 3. CLASSIFICACIÓ D'IMATGES DE RADIOGRAFIA PER EMBASSAMENT PLEURAL
+
+<br/>
 
 ![CNN classificació d'imatges](/Imatges/Implementacions/Classificacio/esquemaCNNclassif.png "CNN classificació d'imatges")
 
