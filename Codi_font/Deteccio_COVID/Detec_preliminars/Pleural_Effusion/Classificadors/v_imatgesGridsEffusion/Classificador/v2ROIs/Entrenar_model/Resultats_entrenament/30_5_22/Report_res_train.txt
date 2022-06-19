@@ -1,0 +1,32 @@
+Classificador dataset grids effusion combined v2ROIs (ENTRENAMENT)
+
+ENTRENAMENTS 
+
+	1R ENTRENAMENT
+	
+	# epochs: 100
+	learning rate max fit_one_cycle: lr_valley 
+	
+	accuracy últim epoch (#99):  0.75
+	train_loss últim epoch: 0.02
+	valid_loss últim epoch: 1.43
+	
+	2N ENTRENAMENT
+	
+	# epochs: 200
+	learning rate max fit_one_cycle: slice(1e-6, 1e-4)
+	
+	accuracy últim epoch*: 0.77  * (l'últim epoch de la taula no és el 199, sinó el 181)
+	train_loss últim epoch: 0.003
+	valid_loss últim epoch: 1.69
+	
+
+INTERPRETATION 
+	
+	RESULTATS MATRIU DE CONFUSIÓ:
+
+		Nombre d’imatges de validació total: 100
+		Total d’imatges effusion: 50
+		Total d’imatges normal: 50
+		Total prediccions effusion correctes:  (41/50 = 0.82 accuracy effusion)
+		Total prediccions normal correctes:  (37/50 = 0.74 accuracy normal)

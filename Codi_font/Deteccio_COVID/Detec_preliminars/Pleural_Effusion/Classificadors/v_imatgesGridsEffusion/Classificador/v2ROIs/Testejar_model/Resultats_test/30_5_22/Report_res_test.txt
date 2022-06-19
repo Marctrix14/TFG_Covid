@@ -1,0 +1,17 @@
+Classificador dataset grids effusion combined v2ROIs (test)
+
+INFERENCE (test predictions)
+
+	test_loss: 1.3096051216125488
+	accuracy: 0.800000011920929
+	
+
+INTERPRETATION 
+	
+	RESULTATS MATRIU DE CONFUSIÓ:
+
+		Nombre d’imatges de validació total: 100
+		Total d’imatges effusion: 50
+		Total d’imatges normal: 50
+		Total prediccions effusion correctes:  (38/50 = 0.76 accuracy effusion)
+		Total prediccions normal correctes:  (42/50 = 0.84 accuracy normal)

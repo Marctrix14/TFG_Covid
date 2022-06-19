@@ -1,83 +1,95 @@
-# TFG_Covid
+# PROJECTE FI DE GRAU
 
-## TREBALL DE FINAL DE GRAU
 
-<br/>
+## DESCRIPCIÓ
 
-Autor: Marc Padrós Jiménez
+<p> Anàlisi i processament d'imatges de radiografia de tòrax per ajudar en la detecció del COVID-19 i de malaties pulmonars.</p>
+<p> S'han realitzat algorismes d'intel·ligència artificial basats en xarxes neuronals convolucionals, anomenades en anglès Convolutional Neural Networks o CNNs. </p>
 
-Tutors: Robert Martí i Xavier Lladó
 
-Curs: 2022/23
-
-DESCRIPCIÓ: Implementació d'algorismes per col·laborar en la detecció de COVID-19 a través de l'anàlisi d'imatges de radiografia de tòrax.
+![Imatge del projecte](/Imatges/imatgeProjecte.jpeg "Imatge del projecte")
 
 <br/>
 
+<p> Els algorismes implementats són:
 
-Els algorismes implementats ordenats per data de creació són:
+1. Models CNN de detecció de pulmons. 
 
-1. Algorisme de segmentació de pulmons a través de
-generar quadrícules. 
+2. Algorismes de divisió dels pulmons en quadrícules. 
 
-2. Models CNN de detecció de pulmons. 
+3.  Models CNN de classificació d'imatges de radiografia segons si contenen o no embassament pleural* / "pleural effusion". </p>
 
-3.  Models CNN de classificació de vessament pleural / "pleural effusion".
+<br/>
+
+<p> * L'embassament pleural és una acumulació excessiva de líquid que es situa en l'espai pleural, que és una regió entre el pulmó i la membrana externa que el cobreix. </p>
+
+![Ubicació embassament pleural](/Imatges/DefinicioEmbassament/embassamentUbicacio.jpg "Ubicació embassament pleural")
+
+<p> El mètode més utilitzat per detectar l'embassament pleural és realitzar una radiografia de tòrax. En una radiografia l'embassament es representa com a regions de color blanc.</p>  
+
+![Detecció embassament pleural radiografia de tòrax](/Imatges/DefinicioEmbassament/embassamentDeteccioRx.JPG "Detecció embassament pleural radiografia de tòrax")
+
+<p> Si es detecta embassament pleural es pot confirmar que un pacient no tindrà COVID-19.</p>
+
+
+<br/>
+
+
+## IMPLEMENTACIONS 
+
+### DETECCIÓ DE PULMONS
+
+![Detecció embassament pleural radiografia de tòrax](/Imatges/Implementacions/DeteccioPulmons/versionsROIs.JPG "Detecció embassament pleural radiografia de tòrax")
+
+* VERSIÓ 1: 1 requadre / bounding box pels 2 pulmons
+    - [Versió original](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_pulmons/v_1ROI/Implementacions/Original_Robert/roi_detection_Robert_fastaiv2.ipynb) 
+
+    - [Versió adaptada](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_pulmons/v_1ROI/Implementacions/Meva_adaptacio/v1/model_lungs_detection_1ROI_ambClasses.ipynb) 
+
+
+* VERSIÓ 2: 1 requadre / bounding box per pulmó
+    - [Versió vigent](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_pulmons/v_2ROIs/Implementacions/Entrenar_model/train_model_2ROIs_lungs_detection_v3_discrimLr_local.ipynb)
+
+![Precisió detecció de pulmons](/Imatges/Implementacions/DeteccioPulmons/precisio.png "Precisió detecció de pulmons")
+
+
+<br/>
+
+### DIVISIÓ DELS PULMONS
+
+![Proves de divisó dels pulmons](/Imatges/Implementacions/DivisioPulmons/resultatsDivisio.png "Proves de divisió dels pulmons")
+
+- [VERSIÓ VIGENT](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Divisio_pulmons/v2/grid_bboxes.ipynb) 
 
 <br/><br/>
 
 
+### CLASSIFICACIÓ D'IMATGES DE RADIOGRAFIA PER EMBASSAMENT PLEURAL
 
-### Models CNN de classificació de "pleural effusion"
+![CNN classificació d'imatges](/Imatges/Implementacions/Classificacio/esquemaCNNclassif.png "CNN classificació d'imatges")
 
-* Classificador 1: dataset d'entrada conté imatges de radiografia de cossos humans  
-    - [VERSIO VIGENT](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_troballes/Troballes_principals/Pleural_Effusion/Models_classificacio_effusion/Dataset_entrada_imatges_senceres/Meva_adaptacio_fastai/resnet50/v3/v2/Model_a_entrenar/effusion_classification_resnet50_v2.ipynb)
-        - RESULTATS MODEL ENTRENAT:
-            - 2 entrenaments (1r 50 epochs, 2n 100)
-            - Accuracy darrer epoch 2n entrenament: 0.78 
-            - Accuracy matriu de confusió "effusion": 42/50 (0.84)
-            - Accuracy matriu de confusió "normal": 36/50 (0.72)
+![Versions classificació](/Imatges/Implementacions/Classificacio/esquemes_classif_effusion.JPG "Versions classificació")
+
+
+
+* Classificador 1: dataset d'entrada conté imatges de radiografia de tòrax
+    - [Versió entrenament](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_COVID/Detec_preliminars/Pleural_Effusion/Classificadors/v_imatgesTorax/Classificador/Meva_adaptacio_fastai/resnet50/Entrenar_model/train_effusion_classif_torax_resnet50_ds_git.ipynb)
+    - [Versió test](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_COVID/Detec_preliminars/Pleural_Effusion/Classificadors/v_imatgesTorax/Classificador/Meva_adaptacio_fastai/resnet50/Testejar_model/test_eff_classif_torax_resnet50.ipynb) 
+       
 
 <br/>
 
 * Classificador 2: dataset d'entrada conté imatges de pulmons 
-    - [VERSIÓ VIGENT](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_troballes/Troballes_principals/Pleural_Effusion/Models_classificacio_effusion/Dataset_entrada_ROIs_pulmons/Classificador/v3/Model_a_entrenar/effusion_classification_ROIS_lungs_v3.ipynb) 
-        - RESULTATS MODEL ENTRENAT:
-            - 2 entrenaments (1r 100 epochs, 2n 200)
-            - Accuracy darrer epoch 2n entrenament: 0.75
-            - Accuracy matriu de confusió "effusion": 39/50 (0.78)
-            - Accuracy matriu de confusió "normal": 36/50 (0.72)
+    - [Versió entrenament](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_COVID/Detec_preliminars/Pleural_Effusion/Classificadors/v_imatgesPulmons/Classificador/v_1ROI/Entrenar_model/train_effusion_classification_ROIS_lungs_v3.ipynb) 
+    - [Versió test](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_COVID/Detec_preliminars/Pleural_Effusion/Classificadors/v_imatgesPulmons/Classificador/v_1ROI/Testejar_model/test_eff_classif_ROIS_lungs_v3.ipynb)  
 
 <br/>
 
-* Classificador 3: dataset d'entrada conté quadrícules on pot ubicar-se l'anomalia "pleural effusion"
-    - [VERSIÓ VIGENT](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_troballes/Troballes_principals/Pleural_Effusion/Models_classificacio_effusion/Dataset_entrada_grids_effusion/Classificador/v2_gridsCombined/Model_v1/Model_a_entrenar/effusion_classif_grids_combined_v1.ipynb) 
-        - RESULTATS MODEL ENTRENAT:
-            - 2 entrenaments (1r 100 epochs, 2n 200)
-            - Accuracy darrer epoch 2n entrenament: 0.85
-            - Accuracy matriu de confusió "effusion": 47/50 (0.94)
-            - Accuracy matriu de confusió "normal": 38/50 (0.76)
-
-
-<br/><br/>
-
-
-### Detecció de pulmons
-
-* V1: 1 ROI (1 bounding box pels 2 pulmons)
-    - [Versió original Robert](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_pulmons/v_1ROI/Implementacions/Original_Robert/roi_detection_Robert_fastaiv2.ipynb) 
-
-    - Versió adaptada per mi: de moment no tinc cap versió funcional
-
-
-* V2: 2 ROIs (1 bounding box per pulmó)  
-    - [Versió vigent](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_pulmons/v_2ROIs/Implementacions/Implementacions_funcionals/11_5_22/model_lungs_detection_v3_discrimLr_local.ipynb)
-
-<br/><br/>
-
-### Segmentació de pulmons
-
-- [VERSIÓ VIGENT](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Segmentacio_pulmons/v3/grid_image.ipynb) 
+* Classificador 3: dataset d'entrada conté imatges de les regions dels pulmons on pot haver embassament pleural
+    - [Versió entrenament](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_COVID/Detec_preliminars/Pleural_Effusion/Classificadors/v_imatgesGridsEffusion/Classificador/v2ROIs/Entrenar_model/train_effusion_classif_grids_combined_2ROIs.ipynb) 
+    - [Versió test](https://github.com/Marctrix14/TFG_Covid/blob/main/Codi_font/Deteccio_COVID/Detec_preliminars/Pleural_Effusion/Classificadors/v_imatgesGridsEffusion/Classificador/v2ROIs/Testejar_model/test_effusion_classif_grids_combined_v3.ipynb) 
+  
+![Precisió classificació d'imatges](/Imatges/Implementacions/Classificacio/precisio.png "Precisió classificació d'imatges")
 
 
 

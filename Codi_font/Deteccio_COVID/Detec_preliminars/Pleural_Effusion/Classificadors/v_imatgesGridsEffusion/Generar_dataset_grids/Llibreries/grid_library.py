@@ -41,11 +41,11 @@ def gridBbox(bbox, imgRes, imgOri, nRows, nCols):
     # More info at: https://pyimagesearch.com/2021/01/20/opencv-getting-and-setting-pixels/
 
     # Vertical borders 
-    imgRes[int(bbox[1]): int(bbox[3]), int(bbox[0])] = (255, 0, 0) # (R,G,B)
-    imgRes[int(bbox[1]): int(bbox[3]), int(bbox[2])] = (255, 0, 0) 
+    imgRes[int(bbox[1]): int(bbox[3]), int(bbox[0])-1] = (255, 0, 0) # (R,G,B)
+    imgRes[int(bbox[1]): int(bbox[3]), int(bbox[2])-1] = (255, 0, 0) 
     # Horizontal borders 
     imgRes[int(bbox[1]), int(bbox[0]) : int(bbox[2])] = (255, 0, 0) 
-    imgRes[int(bbox[3]), int(bbox[0]) : int(bbox[2])] = (255, 0, 0) 
+    imgRes[int(bbox[3])-1, int(bbox[0]) : int(bbox[2])] = (255, 0, 0) 
 
     # TODO: param grids length should be nGrids, not the nRows * nCols 
     # Get the number of grids for the bbox
@@ -70,16 +70,19 @@ def gridBbox(bbox, imgRes, imgOri, nRows, nCols):
     y = bbox[1] # miny
     for nGrids in range(nRows*nCols): # nIterations = number of grids
         grids[nGrids] = imgOri[int(y): int(y + gridHeight), int(x): int(x + gridWidth)]        
+        # Move horizontally in the X axis to the next grid
         x = x + gridWidth
         # check if x (column index) has reached the right border of the bbox        
         if (x < bbox[2]): # check if x < maxX
             # paint vertical line of the added grid 
             imgRes[int(bbox[1]):int(bbox[3]), int(x)] = (255, 0, 0) 
-        # right border reached 
+        # right border reached; move to the next row of grids
         else: 
-            x = bbox[0] # set x to minX 
+            x = bbox[0] # set x to minX (go to the start column)
+            y = y + gridHeight # move vertically in the Y axis to the next row of grids
+            if (y == bbox[3]): # ensure not going out of bounds 
+                y = bbox[3]-1 # -1 is for avoiding going out of bounds
             # paint horizontal line 
-            y = y + gridHeight
             imgRes[int(y), int(bbox[0]): int(bbox[2])] = (255, 0, 0) 
 
     return grids
